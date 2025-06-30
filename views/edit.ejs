@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body>
+    <div class="main w-full min-h-screen bg-zinc-900">
+        <div class="form p-10 text-white">
+            <form action="/edit" method="post" >
+                <a href="/" class="text-white  inline-block mb-3 bg-blue-600 rounded-md px-5 py-2 m-5">Go to Home</a>
+                <input type="text" placeholder="Previous Name" class="block px-5 py-2 bg-zinc-800 w-1/4 rounded-md outline-none m-5 " name="previous" readonly value="<%=filename%>">
+                <input type="text" placeholder="New Name" class="block px-5 py-2 bg-zinc-800 w-1/4 rounded-md outline-none m-5 mb-0" name="new">
+                <span class="text-red-900 w-full block ml-5 mb-3">please provide extension of the file.</span>
+                <input type="submit" value="Update task" class="mt-2 bg-yellow-600 px-5 py-2 cursor-pointer rounded-md m-5">
+             
+            </form>
+    </div>
+    
+</body>
+</html>

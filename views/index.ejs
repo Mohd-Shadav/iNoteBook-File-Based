@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body>
+    <div class="main w-full min-h-screen bg-zinc-900">
+        <div class="form p-10 text-white">
+            <form action="/create" method="post">
+                <input type="text" placeholder="title" class="block px-5 py-2 bg-zinc-800 w-full rounded-md outline-none" name="title">
+                <textarea placeholder="write your task detail here" class="block px-5 py-2 bg-zinc-800 resize-none mt-2 w-full rounded-md outline-none" name="details"></textarea>
+                <input type="submit" value="Create task" class="mt-2 bg-blue-600 px-5 py-2 cursor-pointer rounded-md">
+            </form>
+        </div>
+        <div class="tasks p-10 flex gap-3 flex-wrap">
+
+            <% if(files.length>0){%>
+
+               <% files.forEach((file)=>{ %>
+                    <div class="task w-72 px-3 py-4 rounded-md bg-zinc-800">
+                        <h1 class="text-white tracking-tighter text-3xl">
+                            <%=file.replace(/\.[^.]+$/, '')%>
+                        </h1>
+                       <div class="flex mt-3 w-full justify-between items-center">
+
+                        <a class="text-blue-500 inline-block " href="/file/<%=file%>">Read more...</a>
+
+                        <div class="flex gap-3">
+                            <a class="text-zinc-400" href="/edit/<%=file%>">edit</a>
+                           
+                            
+                            <a class="text-red-500 delete-btn" href="/" data-filename="<%= file %>">delete</a>
+
+                         
+                        </div>
+
+                       </div>
+                    </div>
+              <%  }) %>
+
+            <%} else {%>
+                <h3 class="text-zinc-600 px-3 py-4">No Task</h3>
+           <% } %>
+
+       
+        </div>
+
+    </div>
+
+    <script src="/javascripts/script.js"></script>
+</body>
+</html>
